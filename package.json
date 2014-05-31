@@ -3,7 +3,10 @@
   "author": "jden <jason@denizac.org>",
   "version": "0.1.0",
   "description": "use github repos as a vinyl (gulp) source",
-  "keywords": ["gulp", "github"],
+  "keywords": [
+    "gulp",
+    "github"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -13,6 +16,14 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "chai": "^1.9.1",
-    "mocha": "^1.19.0"
+    "mocha": "^1.19.0",
+    "vinyl-fs": "^0.1.4",
+    "rimraf": "^2.2.8"
+  },
+  "dependencies": {
+    "readable-stream": "^1.0.27-1",
+    "vinyl": "^0.2.3",
+    "request": "^2.36.0",
+    "tar-stream": "^0.4.2"
   }
 }
