@@ -29,20 +29,17 @@ function GithubSrc (repo, opt) {
   stream._read = function () {}
 
   var ref = opt.ref
-  var first = false
+  var first = true
   
   getTarball(repo)
-    .on('ref', function (r) {
-      ref = r
-      stream.ref = r
-    })
     .on('error', stream.emit.bind(stream, 'error'))
     .on('entry', function (header, contents, next) {
       if (header.type !== 'file') { return next() }
       
       if (first) {
         first = false
-        ref = header.name.match(/-([a-f0-9]{7})\/$/)[1]
+        console.log(header.name)
+        ref = header.name.match(/-([a-f0-9]{7})\//)[1]
       }
 
       var filePath = header.name.substr(header.name.indexOf('/'))
